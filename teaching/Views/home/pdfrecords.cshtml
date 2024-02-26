@@ -1,8 +1,32 @@
-﻿
+﻿@model teaching.Models.pdfdocument
 @{
     ViewBag.Title = "pdfrecords";
 }
 
 
-<label>C# file</label>
-<input type="button" value="show file" <iframe src="~/pdfs/LearnJava.pdf"></iframe>
+
+<h1 style="text-align:center">welcome to Records Page</h1>
+
+<div>
+    <form method="post" onsubmit="return updatePdf()">
+        <label for="search">Search PDFs:</label>
+        <input type="text" id="Name" name="Name" />
+        <button type="submit">Search</button>
+    </form>
+</div>
+
+<script>
+    function updatePdf() {
+        return true;
+    }</script>
+@if (Model != null)
+{
+    <div>
+        <p>@Model.documentname</p>
+        <embed src="@Url.Content(Model.dacumentpath)" width="800" height="600" type="application/pdf">
+    </div>
+}
+else
+{
+    <p>No matching PDF found.</p>
+}

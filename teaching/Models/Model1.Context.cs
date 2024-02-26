@@ -26,5 +26,6 @@ namespace teaching.Models
         }
     
         public virtual DbSet<studentlgn> studentlgns { get; set; }
+        public virtual DbSet<pdfdocument> pdfdocuments { get; set; }
     }
 }

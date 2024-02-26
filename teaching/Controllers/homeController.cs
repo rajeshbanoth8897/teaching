@@ -85,7 +85,31 @@ namespace teaching.Controllers
         {
             return View();
         }
+       
+        [HttpPost]
+        public ActionResult pdfrecords(string Name)
+        {
+            //Name="csharp";
+            // Check if the search parameter is provided
+            if (!string.IsNullOrEmpty(Name))
+            {
+                // Try to find the PDF document based on the search query
+                var pdfDocument = dc.pdfdocuments.FirstOrDefault(p => p.documentname.Contains(Name));
+
+                if (pdfDocument != null)
+                {
+                    return View(pdfDocument);
+                }
+            }
+
+            // If no matching PDF is found or search is not provided, display an error message
+            return View();
+        }
+
+
 
 
     }
+
+
 }
