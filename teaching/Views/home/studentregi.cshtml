@@ -1,0 +1,28 @@
+﻿@model teaching.Models.studentlgn
+@{
+    ViewBag.Title = "studentregi";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <h1>Welcome to Login Page</h1>
+    <meta name="viewport" content="width=device-width" />
+    <title>login</title>
+</head>
+<body>
+    <div>
+        <form method="post">
+
+            <label> Student Id</label> @Html.TextBoxFor(c => c.studentid) </br></br>
+            <label> Password</label> @Html.PasswordFor(c => c.pwd) </br></br>
+            <input type="submit" value="Login" />
+
+
+        </form>
+    </div>
+    @ViewData["e"]
+</body>
+</html>
+
